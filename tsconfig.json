@@ -1,18 +1,30 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "target": "es2018",
+    "target": "es5",
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "sourceRoot": "/src",
-    "module": "commonjs",
+    "lib": ["ESNext"],
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "outDir": "./dist",
-    "esModuleInterop": true,
+    "composite": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "isolatedModules": true,
+    "strict": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "skipLibCheck": true
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "allowUmdGlobalAccess": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

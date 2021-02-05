@@ -1,10 +1,11 @@
+import knex from 'knex';
 import {config} from 'dotenv';
-import {Config} from 'knex';
 
 config();
 
-export default {
+export const connection: knex = knex({
   client: 'pg',
+  pool: {min: 10, max: 100},
   connection: {
     host: process.env.DATABASE_HOST,
     port: parseInt(process.env.DATABASE_PORT || '5432'),
@@ -12,15 +13,4 @@ export default {
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
   },
-  pool: {
-    min: 1,
-    max: 10,
-  },
-  migrations: {
-    tableName: 'migrations',
-    loadExtensions: ['.ts'],
-    extension: 'ts',
-    directory: './migrations',
-    schemaName: 'public',
-  },
-} as Config;
+});

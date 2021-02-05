@@ -1,11 +1,7 @@
-dist 
-# package directories
+dist
 node_modules
-jspm_packages
-
-# Serverless directories
-.serverless
-.terraform
-
-.DS_STORE
 .env
+
+**/*.log
+**/.DS_Store
+**/Thumbs.db
