@@ -13,6 +13,10 @@ COPY migrations migrations
 
 RUN chmod +x bin/wait.sh
 RUN npm install
+
+COPY codegen.yml codegen.yml
+COPY types.graphql types.graphql
+
 RUN npm run dev:build
 
 CMD ["./bin/wait.sh", "postgres:5432", "--", "npm", "start"]

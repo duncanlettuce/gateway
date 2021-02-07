@@ -12,6 +12,10 @@
 !/src/**
 !/migrations/**
 
+# Include graphql-codegen files
+!/codegen.yml
+!./types.graphql
+
 # Ignore Unnecessary Files
 **/*.log
 **/.DS_Store
