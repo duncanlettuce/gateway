@@ -4,6 +4,7 @@ services:
     image: postgres:12
     volumes:
       - database:/var/lib/postgresql/data
+      - app:/app
     expose:
       - ${DATABASE_PORT}
     ports:
@@ -18,12 +19,15 @@ services:
     build:
       context: .
       dockerfile: ./docker/gateway.dockerfile
+    volumes:
+      - app:/app
     links:
       - postgres
-    ports: 
+    ports:
       - ${PORT}:${PORT}
     environment:
       PORT: ${PORT}
-    
+
 volumes:
   database:
+  app:
